@@ -9,11 +9,11 @@ namespace RepositoryPatternCrudEmployee.Repository
     public interface IEmployeeRepository
     {
         IEnumerable<Employee> GetAllEmployeeR();
-        Employee GetEmployeeR (int id);
+        void GetEmployeeR (int id);
 
-        Employee AddR(Employee employee);
-        Employee UpdateR(Employee employee);
-        Employee DeleteR(int id);
+        void AddR(Employee employee);
+        void UpdateR(Employee employee);
+        void DeleteR(int id);
 
     }
 }

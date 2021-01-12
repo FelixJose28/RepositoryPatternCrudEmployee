@@ -14,14 +14,13 @@ namespace RepositoryPatternCrudEmployee.Repository
         {
             _context = context;
         }
-        public Employee AddR(Employee employee)
+        public void AddR(Employee employee)
         {
             _context.Employee.Add(employee);
             _context.SaveChanges();
-            return employee;
         }
 
-        public Employee DeleteR(int id)
+        public void DeleteR(int id)
         {
             Employee employee = _context.Employee.FirstOrDefault(m => m.Id == id);
             if(employee != null)
@@ -29,7 +28,6 @@ namespace RepositoryPatternCrudEmployee.Repository
                 _context.Employee.Remove(employee);
                 _context.SaveChanges();
             }
-            return employee;
             
         }
 
@@ -38,17 +36,15 @@ namespace RepositoryPatternCrudEmployee.Repository
             return _context.Employee.ToList();
         }
 
-        public Employee GetEmployeeR(int id)
+        public void GetEmployeeR(int id)
         {
             Employee employee = _context.Employee.FirstOrDefault(m => m.Id == id);
-            return employee;
         }
 
-        public Employee UpdateR(Employee employee)
+        public void UpdateR(Employee employee)
         {
             _context.Employee.Update(employee);
             _context.SaveChanges();
-            return employee;
         }
     }
 }

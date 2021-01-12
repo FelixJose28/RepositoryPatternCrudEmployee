@@ -36,7 +36,7 @@ namespace RepositoryPatternCrudEmployee.Controllers
             {
                 _employeeRepository.AddR(employee);
             }
-            return Ok(employee);
+            return RedirectToAction(nameof(Index));
         }
     }
 }
