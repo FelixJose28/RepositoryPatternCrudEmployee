@@ -6,7 +6,8 @@
 
 <div class="container">
     <h1>Datos del empleado</h1>
-    <form asp-action="Delete" method="post">
+    <form asp-action="DeleteEmployee" method="post">
+        <input hidden asp-for="Id" />
         <div asp-validation-summary="ModelOnly"></div>
         <div class="row">
             <div class="col-6">

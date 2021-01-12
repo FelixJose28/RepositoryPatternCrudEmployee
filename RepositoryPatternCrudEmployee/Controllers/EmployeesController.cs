@@ -44,5 +44,13 @@ namespace RepositoryPatternCrudEmployee.Controllers
             var employee = _employeeRepository.GetEmployeeR(id);
             return View(employee);
         }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult DeleteEmployee(int id)
+        {
+            _employeeRepository.DeleteR(id);
+            return RedirectToAction(nameof(Index));
+
+        }
     }
 }
