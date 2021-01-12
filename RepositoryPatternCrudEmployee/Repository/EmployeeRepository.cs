@@ -36,9 +36,10 @@ namespace RepositoryPatternCrudEmployee.Repository
             return _context.Employee.ToList();
         }
 
-        public void GetEmployeeR(int id)
+        public Employee GetEmployeeR(int id)
         {
             Employee employee = _context.Employee.FirstOrDefault(m => m.Id == id);
+            return employee;
         }
 
         public void UpdateR(Employee employee)

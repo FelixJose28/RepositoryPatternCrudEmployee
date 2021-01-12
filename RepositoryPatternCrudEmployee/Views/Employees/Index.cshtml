@@ -17,6 +17,7 @@
             <td>Direccion</td>
             <td>Salario</td>
             <td>Correo</td>
+            <td>Acciones</td>
         </tr>
     </thead>
     <tbody>
@@ -27,6 +28,10 @@
                 <th>@employee.Address</th>
                 <th>@employee.Salary</th>
                 <th>@employee.Email</th>
+                <th>
+                    <a class="btn btn-warning w-25" asp-route-id="@employee.Id" asp-action="Details">Detalles</a>
+                    <a class="btn btn-danger w-25" asp-route-id="@employee.Id" asp-action="Delete">Borrar</a>
+                </th>
             </tr>
         }
 
