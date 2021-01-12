@@ -6,6 +6,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using RepositoryPatternCrudEmployee.Data;
+using RepositoryPatternCrudEmployee.Repository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -29,7 +30,7 @@ namespace RepositoryPatternCrudEmployee
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
 
-
+            services.AddScoped<IEmployeeRepository, EmployeeRepository>();
             services.AddControllersWithViews();
         }
 
