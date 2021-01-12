@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using RepositoryPatternCrudEmployee.Models;
 using RepositoryPatternCrudEmployee.Repository;
 using System;
 using System.Collections.Generic;
@@ -18,6 +19,24 @@ namespace RepositoryPatternCrudEmployee.Controllers
         public IActionResult Index()
         {
             return View(_employeeRepository.GetAllEmployeeR());
+        }
+
+
+        [HttpGet]
+        public IActionResult Create()
+        {
+            return View();
+        } 
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Create(Employee employee)
+        {
+            if (ModelState.IsValid)
+            {
+                _employeeRepository.AddR(employee);
+            }
+            return Ok(employee);
         }
     }
 }
