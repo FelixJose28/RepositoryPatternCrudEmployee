@@ -1,0 +1,45 @@
+﻿@model Employee
+@{
+    ViewData["Title"] = "create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <h1>Datos del empleado</h1>
+    <form asp-action="EditEmployee" method="post">
+        <input hidden asp-for="Id" />
+        <div asp-validation-summary="ModelOnly"></div>
+        <div class="row">
+            <div class="col-6">
+                <label asp-for="Name"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name"></span>
+            </div>
+            <div class="col-6">
+                <label asp-for="Address"></label>
+                <input asp-for="Address" class="form-control" />
+                <span asp-validation-for="Address"></span>
+            </div>
+        </div>
+
+        <div class="row mt-4">
+            <div class="col-6">
+                <label asp-for="Salary"></label>
+                <input asp-for="Salary" class="form-control" />
+                <span asp-validation-for="Salary"></span>
+            </div>
+            <div class="col-6">
+                <label asp-for="Email"></label>
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email"></span>
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col-6">
+                <a class="btn btn-success mx-2" style="width:40%" asp-controller="Employees" asp-action="Index">Volve atras</a>
+                <button class="btn btn-info mx-2" style="width:40%" type="submit">Editar Empleado</button>
+            </div>
+        </div>
+    </form>
+</div>
+

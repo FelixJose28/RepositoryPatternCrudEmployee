@@ -58,5 +58,21 @@ namespace RepositoryPatternCrudEmployee.Controllers
             var employee = _employeeRepository.GetEmployeeR(id);
             return View(employee);
         }
+        [HttpGet]
+        public IActionResult Edit(int id)
+        {
+            var employee = _employeeRepository.GetEmployeeR(id);
+            return View(employee);
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult EditEmployee(Employee employee)
+        {
+            if (ModelState.IsValid)
+            {
+                _employeeRepository.UpdateR(employee);
+            }
+            return RedirectToAction(nameof(Index));
+        }
     }
 }

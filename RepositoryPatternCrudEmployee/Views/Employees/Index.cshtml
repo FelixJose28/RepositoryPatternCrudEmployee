@@ -3,12 +3,12 @@
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<a class="btn btn-success float-right" asp-action="Create">Agregar Empleado</a>
+<a class="btn btn-success float-right mb-4" asp-action="Create">Agregar Empleado</a>
 @if (Model.Count() > 0)
 {
 
 
-<h1 class="text-info">Lista de empleados</h1>
+<h1 class="text-info mt-2">Lista de empleados</h1>
 
 <table class="table table-striped mt-4">
     <thead>
@@ -29,7 +29,8 @@
                 <th>@employee.Salary</th>
                 <th>@employee.Email</th>
                 <th>
-                    <a class="btn btn-warning w-25" asp-route-id="@employee.Id" asp-action="Detail">Detalles</a>
+                    <a class="btn btn-info w-25" asp-route-id="@employee.Id" asp-action="Detail">Detalles</a>
+                    <a class="btn btn-warning w-25" asp-route-id="@employee.Id" asp-action="Edit">Editar</a>
                     <a class="btn btn-danger w-25" asp-route-id="@employee.Id" asp-action="Delete">Borrar</a>
                 </th>
             </tr>
@@ -40,5 +41,5 @@
 }
 else
 {
-    <h1 class="text-center text-danger" >No hay empleados </h1>
+    <h1 class="text-center mt-4 text-danger" >No hay empleados </h1>
 }
