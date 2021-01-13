@@ -1,4 +1,5 @@
-﻿using RepositoryPatternCrudEmployee.Models;
+﻿using Microsoft.AspNetCore.Mvc;
+using RepositoryPatternCrudEmployee.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +9,7 @@ namespace RepositoryPatternCrudEmployee.Repository
 {
     public interface IEmployeeRepository
     {
-        IEnumerable<Employee> GetAllEmployeeR();
+        Task<IEnumerable<Employee>> GetAllEmployeeR();
         Employee GetEmployeeR (int id);
 
         void AddR(Employee employee);

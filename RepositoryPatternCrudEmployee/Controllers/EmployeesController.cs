@@ -16,9 +16,9 @@ namespace RepositoryPatternCrudEmployee.Controllers
             _employeeRepository = employeeRepository;
         }
         [HttpGet]
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            return View(_employeeRepository.GetAllEmployeeR());
+            return View(await _employeeRepository.GetAllEmployeeR());
         }
 
 

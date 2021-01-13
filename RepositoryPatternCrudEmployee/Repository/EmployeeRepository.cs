@@ -1,4 +1,5 @@
-﻿using RepositoryPatternCrudEmployee.Data;
+﻿using Microsoft.EntityFrameworkCore;
+using RepositoryPatternCrudEmployee.Data;
 using RepositoryPatternCrudEmployee.Models;
 using System;
 using System.Collections.Generic;
@@ -31,9 +32,9 @@ namespace RepositoryPatternCrudEmployee.Repository
             
         }
 
-        public IEnumerable<Employee> GetAllEmployeeR()
+        public async Task<IEnumerable<Employee>> GetAllEmployeeR()
         {
-            return _context.Employee.ToList();
+            return await _context.Employee.ToListAsync();
         }
 
         public Employee GetEmployeeR(int id)
