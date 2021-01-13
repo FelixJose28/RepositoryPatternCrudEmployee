@@ -35,8 +35,9 @@ namespace RepositoryPatternCrudEmployee.Controllers
             if (ModelState.IsValid)
             {
                 _employeeRepository.AddR(employee);
+                return RedirectToAction(nameof(Index));
             }
-            return RedirectToAction(nameof(Index));
+            return View(employee);
         }
         [HttpGet]
         public IActionResult Delete(int id)
@@ -50,7 +51,6 @@ namespace RepositoryPatternCrudEmployee.Controllers
         {
             _employeeRepository.DeleteR(id);
             return RedirectToAction(nameof(Index));
-
         }
         [HttpGet]
         public IActionResult Detail(int id)
@@ -71,8 +71,10 @@ namespace RepositoryPatternCrudEmployee.Controllers
             if (ModelState.IsValid)
             {
                 _employeeRepository.UpdateR(employee);
+                return RedirectToAction(nameof(Index));
             }
-            return RedirectToAction(nameof(Index));
+            return View(employee);
+            
         }
     }
 }
