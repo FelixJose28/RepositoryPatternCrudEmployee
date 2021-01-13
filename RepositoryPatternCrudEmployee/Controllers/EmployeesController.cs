@@ -52,5 +52,11 @@ namespace RepositoryPatternCrudEmployee.Controllers
             return RedirectToAction(nameof(Index));
 
         }
+        [HttpGet]
+        public IActionResult Detail(int id)
+        {
+            var employee = _employeeRepository.GetEmployeeR(id);
+            return View(employee);
+        }
     }
 }
